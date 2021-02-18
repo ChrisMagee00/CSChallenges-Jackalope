@@ -1,4 +1,4 @@
 venv
 geckodriver.log
 __pycache__
-service_installs
+service_installs/
