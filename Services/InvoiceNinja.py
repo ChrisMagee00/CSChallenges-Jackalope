@@ -41,7 +41,7 @@ def install():
 
     #run it
     subprocess.call('sudo chown -R 1500:1500 service_installs/invoice_ninja/Dockerfiles/docker/app', shell=True)
-    subprocess.call("sudo docker-compose -f service_installs/invoice_ninja/Dockerfiles/docker-compose.yml up", shell=True)
+    subprocess.call("sudo docker-compose -f service_installs/invoice_ninja/Dockerfiles/docker-compose.yml up -d", shell=True)
 
 def setup(first_name, surname, password, url, email):
     browser = webdriver.Firefox()
