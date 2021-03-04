@@ -12,12 +12,12 @@ def InvoiceNinjaInstall():
     return('Invoice Ninja installed')
 
 #This cannot be included yet, as I have no way to process the arguments
-#
-# @app.route('/InvoiceNinja/setup')
-# def InvoiceNinjaSetup():
-#     InvoiceNinja.setup()
-#     print('Invoice Ninja setup complete')
-#     return('Invoice Ninja setup complete')
+
+@app.route('/InvoiceNinja/setup')
+def InvoiceNinjaSetup():
+    InvoiceNinja.setup('first_name', 'surname', 'password', 'in.localhost:8081', 'test@email.com')
+    print('Invoice Ninja setup complete')
+    return('Invoice Ninja setup complete')
 
 @app.route('/Nextcloud/install')
 def nextcloudInstall():
@@ -25,8 +25,8 @@ def nextcloudInstall():
     print('Nextcloud installed')
     return('Nextcloud installed')
 
-# @app.route('/Nextcloud/setup')
-# def nextcloudSetup():
-#     nextcloud.setup()
-#     print('Nextcloud setup complete')
-#     return('Nextcloud setup complete')
+@app.route('/Nextcloud/setup')
+def nextcloudSetup():
+    nextcloud.setup('admin', 'P@$$word', 'localhost:8080')
+    print('Nextcloud setup complete')
+    return('Nextcloud setup complete')
