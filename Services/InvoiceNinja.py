@@ -54,7 +54,7 @@ def setup(first_name, surname, password, url, email):
     #put url in field
     url_field = browser.find_element_by_name('url')
     url_field.clear()
-    url_field.send_keys(url)
+    url_field.send_keys('http://' +url)
 
     #click https to disable it
     browser.find_element_by_name('https').click()
@@ -108,4 +108,4 @@ def setup(first_name, surname, password, url, email):
     browser.find_element_by_name('terms_of_service').click()
     browser.find_element_by_name('privacy_policy').click()
     #Submit email test
-    browser.find_element_by_id('test-smtp-connection').click()
+    #browser.find_element_by_id('test-smtp-connection').click()
