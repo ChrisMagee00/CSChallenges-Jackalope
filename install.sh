@@ -11,8 +11,6 @@ sudo apt install docker-compose
 
 sudo apt install git
 
-sudo apt install python-venv
-
 git clone https://github.com/ChrisMagee01/CSChallenges-Jackalope.git
 
 cd CSChallenges-Jackalope
