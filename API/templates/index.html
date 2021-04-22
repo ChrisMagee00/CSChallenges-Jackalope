@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block sidebar %}
+<h3>Filters</h3>
+<ul>
+    <li>Current Status</li>
+    <li>Price</li>
+    <li>Date</li>
+    <li>Customer</li>
+</ul>
+<h3>Sort</h3>
+<ul>
+    <li>Price</li>
+    <li>Date</li>
+</ul>
+{% endblock %} {% block content %}
+
+<h2>
+    Customers
+</h2>
+<div class="tile-container">
+
+    <div class="tile" id="addNew">
+        <h3>+ add new</h3>
+    </div>
+    {% for job in jobs %}
+    <a href="/job/{{job.id}}">
+        <div class="tile">
+            {% set custID = job.customerID | int %}
+            <h3>Customer Name: {{customers[custID].firstname}} {{customers[job.customerID].lastname}}</h3>
+            <div class="flex-container">
+                <div class="property">
+                    <h4>Date:</h4>
+                    <p>{{job.date.start}}-{{job.date.end}}</p>
+                </div>
+                <div class="property">
+                    <h4>Price:</h4>
+                    <p>£{{job.price.materials + job.price.labour + job.price.overheads}}</p>
+                </div>
+                <div class="property">
+                    <h4>Status</h4>
+                    <p>{{job.status}}</p>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block sidebar %}<
+    ul>
+    <a href="/jobs">
+        <li>Home</li>
+    </a>
+    <a href="/customers">
+        <li>Customers</li>
+    </a>
+    <a href="/services">
+    <li>Services</li>
+</a>
+{% endblock %}{% block content %}
+
+<h2>
+    Customers
+</h2>
+<div class="tile-container">
+
+    <div class="tile" id="addNew">
+        <h3>+ add new</h3>
+    </div>
+    {% for customer in customers %}
+    <a href="/customers/{{customer.id}}">
+        <div class="tile">
+            <h3>Customer Name: {{customer.firstname}} {{customer.lastname}}</h3>
+            <div class="flex-container">
+                <div class="property">
+                    <h4>Address:</h4>
+                    <p>{{customer.address}}</p>
+                </div>
+                <div class="property">
+                    <h4>Email:</h4>
+                    <p>{{customer.email}}</p>
+                </div>
+                <div class="property">
+                    <h4>Address</h4>
+                    <p>{{customer.address}}</p>
+                </div>
+                <div class="property">
+                    <h4>Contact Number</h4>
+                    <p>{{customer.phone}}</p>
+                </div>
+                <div class="property">
+                    <h4>ID</h4>
+                    <p>{{customer.id}}</p>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

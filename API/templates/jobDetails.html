@@ -1,0 +1,82 @@
+{% extends "base.html" %} {% block sidebar %}<
+    ul>
+    <a href="/jobs">
+        <li>Home</li>
+    </a>
+    <a href="/customers">
+        <li>Customers</li>
+    </a>
+    <a href="/services">
+    <li>Services</li>
+</a>
+{% endblock %}{% block content %}
+<h2>Details</h2>
+<div class="detailView" id="Customer">
+
+    <p>Name: {{customer.firstname}} {{customer.lastname}}
+        <br />Contact Number: {{customer.phone}}
+        <br />Address: {{job.address}}
+    </p>
+    <a href="/customers/{{customer.id}}">See More</a>
+</div>
+
+<h2>Quote</h2>
+<form method="POST" action="/form">
+
+
+    <label for="quoteAppointment">Appointment: </label>
+    <input id="quoteAppointment" type="date" value="{{job.date.quote}}"><br />
+
+
+    <img class="preview" src="https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=80&d=retro&r=pg">
+    <textarea id="quoteDescription">{{job.quoteDescription|truncate(250)}}</textarea>
+
+    <div class="price">
+
+        <label for="quotePriceLabour">Labour: </label><br />
+        <input id="quotePriceMaterials" name="quotePriceMaterials" type="number" value="{{job.quote.materials}}"><br />
+        <label for="quotePriceLabour">Materials: </label><br />
+        <input id="quotePriceLabour" name="quotePriceLabour" type="number" value="{{job.quote.labour}}"><br />
+        <label for="quotePriceOverhead">Overhead: </label><br />
+        <input id="quotePriceOverhead" name="quotePriceOverhead" type="number" value="{{job.quote.overheads}}">
+
+        <p>
+            Total quote price: {{job.quote.materials + job.quote.labour + job.quote.overheads}}
+        </p>
+    </div>
+    <input type="submit" value="submit">
+</form>
+
+<h2>Work Plan</h2>
+<form method="POST" action="/form">
+    
+    <img class="preview" src="https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=80&d=retro&r=pg">
+    <textarea name= "workDescription" id="workDescription">{{job.workDescription|truncate(250)}}</textarea>
+
+
+    <label for="workStartDate">Start Date: </label><br />
+    <input id="workStartDate" name="workStartDate" type="date" value="{{job.date.start}}"><br />
+    <label for="workEndDate">End Date: </label><br />
+    <input id="workEndDate" name="workEndDate" type="date" value="{{job.date.end}}"><br />
+
+    <input type="submit" value="submit">
+</form>
+
+<h2>Invoice</h2>
+<form method="POST" action="/form">
+    <div class="price">
+
+        <label for="priceLabour">Labour: </label><br />
+        <input id="priceLabour" name="priceLabour"  type="number" value="{{job.price.labour}}"><br />
+        <label for="priceMaterials">Materials: </label><br />
+        <input id="priceMaterials" name="priceMaterials" type="number" value="{{job.price.materials}}"><br />
+        <label for="priceOverhead">Overhead: </label><br />
+        <input id="priceOverhead"  name="priceOverhead" type="number" value="{{job.price.overheads}}">
+
+        <p>
+            Total to be paid: {{job.price.materials + job.price.labour + job.price.overheads}}
+        </p>
+    </div>
+
+    <input type="submit" value="submit">
+</form>{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block content %}
+
+<h2>Details</h2>
+<div class="detailView" id="Customer">
+
+    <form>
+        <select name="CustDropDown" id="CustDropDown">
+            {% for customer in customers %}
+            <option value="{{customer.id}}">{{customer.name}}</option>
+            {% endfor }
+        </select>
+    </form>
+</div>
+{% endblock %}

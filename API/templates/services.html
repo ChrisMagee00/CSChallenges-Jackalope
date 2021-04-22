@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block sidebar %}<
+    ul>
+    <a href="/jobs">
+        <li>Home</li>
+    </a>
+    <a href="/customers">
+        <li>Customers</li>
+    </a>
+    <a href="/services">
+    <li>Services</li>
+</a>
+{% endblock %}{% block content %}
+
+<h2>
+    Services
+</h2>
+<div class="tile-container">
+    {% for service in services %}
+    <a href="{{service.url}}">
+        <div class="tile">
+            <h3>Service Name: {{service.name}} </h3>
+            <div class="flex-container">
+                <div class="property">
+                    <h4>Description:</h4>
+                    <p>{{service.description}}</p>
+                </div>
+                <div class="property">
+                    <h4>Port:</h4>
+                    <p>{{service.port}}</p>
+                </div>
+                <div class="property">
+                    <h4>Status</h4>
+                    <p>{{service.status}}</p>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

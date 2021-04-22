@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>{{ title }} - {{business.name}}))</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}" />
+    <script src="{{ url_for('static',filename='script/script.js') }}"></script>
+</head>
+
+<body>
+    <div id="mySidebar" class="sidebar">
+        {% block sidebar %} {% endblock %}
+    </div>
+    <div id="main">
+        <div id="header">
+            <h1>{{business.name}}</h1>
+        </div>
+        <button id="navopener" class="openbtn" onclick="navControl()">&#9776; Open Sidebar</button>
+
+        <div class="content">
+
+            {% block content %}{% endblock %}
+        </div>
+        <div class="footer">
+            <h2>P O'Kane Plastering and Tiling</h2>
+        </div>
+    </div>
+
+</body>
+
+</html>
