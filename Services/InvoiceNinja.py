@@ -108,4 +108,4 @@ def setup(first_name, surname, password, url, email):
     browser.find_element_by_name('terms_of_service').click()
     browser.find_element_by_name('privacy_policy').click()
     #Submit email test
-    #browser.find_element_by_id('test-smtp-connection').click()
+    browser.find_element_by_id('test-smtp-connection').click()
