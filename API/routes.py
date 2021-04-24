@@ -1,6 +1,7 @@
 from API import app
 from flask import render_template, request, redirect
 from Services import InvoiceNinja, nextcloud
+import urllib
 
 @app.route('/InvoiceNinja/install')
 def InvoiceNinjaInstall():
@@ -27,6 +28,7 @@ def nextcloudSetup():
     nextcloud.setup('admin', 'P@$$word', 'localhost:8080')
     print('Nextcloud setup complete')
     return('Nextcloud setup complete')
+
 
 
 business = {'name': 'P O\'Kane Plastering and Tiling'} #get from config
@@ -89,13 +91,15 @@ services=[{
     'url':'http:localhost:8080',
     'description':'Dropbox equivalent',
     'port':8080,
-    'status':'running'
+    'status':'running',
+    'id':0
     },{
     'name':'Invoice Ninja',
     'url':'http:localhost:8081',
     'description':'Finances',
     'port':8081,
-    'status':'off'
+    'status':'off',
+    'id':1
 }]
 
 
@@ -130,9 +134,26 @@ def customerView():
 
 @app.route('/services')
 def serviceView():
+    for service in services:
+        service['status']=serviceStatus(int(service['id']))
     return render_template('services.html', services=services, business=business)
+            
 
 @app.route('/services/<serviceID>')
-def serviceDetailView():
-    return render_template('services.html', services=services, business=business)
+def serviceDetailView(serviceID):
+    service=services[int(serviceID)]
+    service['status']=serviceStatus(int(serviceID))
+    print(service['status'])
+    return render_template('serviceDetail.html', service=service, business=business)
 
+
+def serviceStatus(serviceID):
+    url="http://localhost:" + str(services[serviceID]['port'])
+    try:
+        statusCode = urllib.request.urlopen(url).getcode()
+        if statusCode == 200:
+            statusCode = 'Running'
+    except:
+        statusCode='Error'
+
+    return statusCode
