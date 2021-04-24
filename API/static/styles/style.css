@@ -1,0 +1,212 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+}
+
+#header {
+    padding: 25px;
+    background-color: #15303A;
+}
+
+#header h1 {
+    margin: 0px;
+    color: #F7F4F3;
+}
+
+.content {
+    width: 70%;
+    margin: auto;
+    flex: 1 0 auto;
+    padding: 0px 0px 20px 0px;
+}
+
+.tile-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* This is better for small screens, once min() is better supported */
+    /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
+    grid-gap: 1rem;
+    /* This is the standardized property now, but has slightly less support */
+    /* gap: 1rem */
+}
+
+.tile {
+    background: #71A7B7;
+    padding: 25px;
+    border-radius: 1rem;
+    transition: 0.5s;
+}
+
+.tile:hover {
+    background: #7fcce4;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+h3 {
+    margin: 0px;
+}
+
+.property {
+    flex-basis: content;
+    margin: 0px 10px;
+}
+
+.property * {
+    margin: 0px;
+}
+
+#nav {
+    background-color: #8C6964;
+}
+
+.form-inline {
+    display: flex;
+    padding: 25px;
+    justify-content: space-between;
+}
+
+.form-inline input {
+    padding: 10px;
+    width: 80%;
+    border-radius: 2px;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+textarea {
+    width: 100%;
+}
+
+
+/* The sidebar menu */
+
+.sidebar {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #15303A;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 87px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidebar */
+}
+
+
+/* The sidebar links */
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    text-align: right;
+}
+
+.sidebar h3 {
+    background-color: #1F4958;
+    color: #F7F4F3;
+    padding: 12.5px;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    background-color: #1F4958;
+    margin: 0px;
+    transition: all .1s ease-in-out;
+    color: #F7F4F3;
+}
+
+.sidebar ul li:hover {
+    padding: 20px 10px;
+    background-color: #15303a;
+    margin: 0px;
+    color: #9C6964;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #111;
+}
+
+
+/* The button used to open the sidebar */
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #1F4958;
+    color: #F7F4F3;
+    padding: 10px 15px;
+    border: none;
+    transition: 0.5s;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    /* 0.5 second transition effect to slide in the sidebar */
+}
+
+.openbtn:hover {
+    background-color: #15303a;
+    color: #9C6964;
+    position: sticky;
+    top: 0;
+}
+
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+#main {
+    transition: margin-left .5s;
+    /* If you want a transition effect */
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+a {
+    text-decoration: none;
+
+    color: inherit;
+}
+
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer {
+    flex-shrink: 0;
+    padding: 20px;
+    background-color: #15303A;
+    color: #9C6964;
+}

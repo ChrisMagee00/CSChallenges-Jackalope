@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block sidebar %}<
+    ul>
+    <a href="/jobs">
+        <li>Home</li>
+    </a>
+    <a href="/customers">
+        <li>Customers</li>
+    </a>
+    <a href="/services">
+    <li>Services</li>
+</a>
+{% endblock %}{% block content %}
+
+<h2>Details</h2>
+<div class="detailView" id="Customer">
+
+    <p>Name: {{customer.firstname}} {{customer.lastname}}</p>
+    <p>Contact Number: {{customer.phone}}></p>
+    <p>Address: {{customer.address}}</p>
+    <p>Email: {{customer.email}}</p>
+    <h3>Jobs:</h3>
+    {% for job in jobs %}
+    <a href="/job/{{job.id}}">
+        <div class="tile">
+            <h3>Customer Name</h3>
+            <div class="flex-container">
+                <div class="property">
+                    <h4>Date:</h4>
+                    <p>{{job.date.start}}-{{job.date.end}}</p>
+                </div>
+                <div class="property">
+                    <h4>Price:</h4>
+                    <p>£{{job.price.materials + job.price.labour + job.price.overheads}}</p>
+                </div>
+                <div class="property">
+                    <h4>Status</h4>
+                    <p>{{job.status}}</p>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}
