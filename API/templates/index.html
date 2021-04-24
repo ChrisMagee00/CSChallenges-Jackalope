@@ -22,7 +22,7 @@
         <h3>+ add new</h3>
     </div>
     {% for job in jobs %}
-    <a href="/job/{{job.id}}">
+    <a href="/jobs/{{job.id}}">
         <div class="tile">
             {% set custID = job.customerID | int %}
             <h3>Customer Name: {{customers[custID].firstname}} {{customers[job.customerID].lastname}}</h3>
