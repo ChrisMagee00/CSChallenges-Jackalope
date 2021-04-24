@@ -10,9 +10,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo apt install docker-compose 
 
 sudo apt install git
-
 git clone https://github.com/ChrisMagee01/CSChallenges-Jackalope.git
 
+sudo chown $USER CSChallenges-Jackalope
 cd CSChallenges-Jackalope
 
 sudo apt install python3-venv
@@ -21,8 +21,6 @@ source venv/bin/activate
 pip install flask
 pip install -U pyselenium
 sudo cp geckodriver /usr/bin
-
 export FLASK_APP=flaskAPI.py
 
 flask run
-
