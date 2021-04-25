@@ -1,6 +1,11 @@
+/* SET FONT FOR ENTIRE WEBAPP */
+
 * {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
+
+
+/*Remove white edges from the page and ensure the footer stays at the bottom*/
 
 html,
 body {
@@ -8,6 +13,9 @@ body {
     margin: 0px;
     height: 100%;
 }
+
+
+/*Set header div's background and pads the text*/
 
 #header {
     padding: 25px;
@@ -19,12 +27,28 @@ body {
     color: #F7F4F3;
 }
 
+
+/*
+The main content of the page is set to have a width and be centred for a more comfortable reading experience
+Flex is to ensure the footer displays correctly
+*/
+
 .content {
     width: 70%;
     margin: auto;
     flex: 1 0 auto;
     padding: 0px 0px 20px 0px;
 }
+
+
+/* 
+Tiles are used to display the information about jobs and customers when there is multiple to be shown
+*/
+
+
+/*
+Allows the tiles to dynamically fill the page
+*/
 
 .tile-container {
     display: grid;
@@ -36,12 +60,22 @@ body {
     /* gap: 1rem */
 }
 
+
+/*
+Adjusts the tile appearance
+*/
+
 .tile {
     background: #71A7B7;
     padding: 25px;
     border-radius: 1rem;
     transition: 0.5s;
 }
+
+
+/*
+Changes the tile's appearance when the mouse hoivers on it, this indicates it is clickable
+*/
 
 .tile:hover {
     background: #7fcce4;
@@ -61,23 +95,6 @@ h3 {
     margin: 0px;
 }
 
-#nav {
-    background-color: #8C6964;
-}
-
-.form-inline {
-    display: flex;
-    padding: 25px;
-    justify-content: space-between;
-}
-
-.form-inline input {
-    padding: 10px;
-    width: 80%;
-    border-radius: 2px;
-    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-}
-
 textarea {
     width: 100%;
 }
@@ -87,21 +104,14 @@ textarea {
 
 .sidebar {
     height: 100%;
-    /* 100% Full-height */
     width: 0;
-    /* 0 width - change this with JavaScript */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Stay on top */
     top: 0;
     left: 0;
     background-color: #15303A;
-    /* Black*/
     overflow-x: hidden;
-    /* Disable horizontal scroll */
     padding-top: 87px;
-    /* Place content 60px from the top */
     transition: 0.5s;
     /* 0.5 second transition effect to slide in the sidebar */
 }
@@ -145,7 +155,7 @@ textarea {
 }
 
 
-/* The button used to open the sidebar */
+/*The button to open the sidebar*/
 
 .openbtn {
     font-size: 20px;
@@ -158,7 +168,6 @@ textarea {
     position: sticky;
     top: 0;
     align-self: flex-start;
-    /* 0.5 second transition effect to slide in the sidebar */
 }
 
 .openbtn:hover {
@@ -169,7 +178,7 @@ textarea {
 }
 
 
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+/*holds the content that is not in the sidebar, uses flec to ensure it flows correctly*/
 
 #main {
     transition: margin-left .5s;
@@ -182,20 +191,10 @@ textarea {
 }
 
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-
-@media screen and (max-height: 450px) {
-    .sidebar {
-        padding-top: 15px;
-    }
-    .sidebar a {
-        font-size: 18px;
-    }
-}
+/*prevent blue links*/
 
 a {
     text-decoration: none;
-
     color: inherit;
 }
 
@@ -203,6 +202,10 @@ a:visited {
     text-decoration: none;
     color: inherit;
 }
+
+
+/*Footer 
+*/
 
 .footer {
     flex-shrink: 0;
