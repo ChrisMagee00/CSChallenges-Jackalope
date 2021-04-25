@@ -112,7 +112,6 @@ def form():
     return redirect(request.referrer)
 
 
-@app.route('/')
 @app.route('/jobs')
 def jobView():
     return render_template('index.html', title='Home', business=business, jobs=jobs, customers=customers)
@@ -132,6 +131,8 @@ def customerDetailView(customerID):
 def customerView():
     return render_template('customers.html', business=business, jobs=jobs, customers=customers)
 
+
+@app.route('/')
 @app.route('/services')
 def serviceView():
     for service in services:
